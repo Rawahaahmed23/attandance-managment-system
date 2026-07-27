@@ -1,72 +1,62 @@
 require('dotenv').config();
 
-const express = require('express');
+const express = require('express')
 const cors = require('cors');
-const cookieParser = require("cookie-parser");
 const dns = require("dns");
-
-const app = express();
-
-
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 
+const app = express()
+const cookieParser = require("cookie-parser");
+
 const corsOptions = {
-  origin: [
-    'https://attendenceapp-ten.vercel.app',
-    'http://localhost:5173'
-  ],
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'https://attendenceapp-ten.vercel.app',
+      'https://attandance-managment-system-iv7h.onrender.com',
+      'http://localhost:5173'
+    ];
+
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
-  methods: [
-    'GET',
-    'POST',
-    'PUT',
-    'DELETE',
-    'PATCH',
-    'HEAD',
-    'OPTIONS'
-  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: [
-    'Content-Type',
-    'Authorization'
+    "Content-Type",
+    "Authorization"
   ]
-};
+}
 
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+
+
+
+
 
 app.use(cookieParser());
+app.use(cors(corsOptions))
 app.use(express.json());
-
-
-// Routes
-const errormiddleware = require('./middleware/errormiddleware');
-const authRoute = require('./router/auth');
-const adminRoute = require('./router/adminRoutes');
-
-
-
-app.use('/', authRoute);
-app.use('/admin', adminRoute);
+const errormiddleware = require('./middleware/errormiddleware')
+const authRoute = require('./router/auth')
+const adminRoute = require('./router/adminRoutes')
+const connecdb = require('./utils/db')
 
 
 
-app.use(errormiddleware);
+const Port = 5000
+app.use('/',authRoute)
+app.use('/admin', adminRoute)
 
+app.use(errormiddleware)
 
-const connecdb = require('./utils/db');
-
-const Port = process.env.PORT || 5000;
-
-
-connecdb()
-  .then(() => {
-    app.listen(Port, () => {
-      console.log(`Server started at ${Port}`);
-    });
-  })
-  .catch((err) => {
-    console.log("Database connection failed:", err);
-  });
+connecdb().then(()=>{
+    app.listen(Port,()=>{
+    console.log(`Server started at ${Port}`);
+    
+})
+})
