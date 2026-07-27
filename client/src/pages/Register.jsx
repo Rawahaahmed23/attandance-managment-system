@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
-import { useAuth } from "@/store/useAuth"
+import { useAuth } from "../store/useAuth"
 import {
   User,
   Mail,

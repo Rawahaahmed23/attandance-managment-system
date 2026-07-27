@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 
 import { useState, useMemo, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 
 import {
   Card,
@@ -9,25 +9,25 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/Card";
+} from "../components/ui/Card";
 
-// Table components will be built inline
+
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog";
+} from "../components/ui/dialog";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/Label";
+} from "../components/ui/Select";
+import { Input } from "../components/ui/Input";
+import { Label } from "../components/ui/Label";
 import { Trash2, Edit, Eye } from "lucide-react";
 
 const months = [
