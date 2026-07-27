@@ -70,7 +70,7 @@ setUser((prevUser) => ({
 
   setIsCheckedIn(true); 
 } else {
-  toast.error("Already checked in today");
+  toast.error("Already checked in todays");
 }
     } catch (error) {
       console.log(error)
