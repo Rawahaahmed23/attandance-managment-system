@@ -32,7 +32,7 @@ export const UserProvider = ({ children }) => {
       try {
             
         const token = Cookies.get("token");
-        const response = await fetch("https://mern-projects-oj9w.onrender.com/user", {
+        const response = await fetch("https://attandance-managment-system-iv7h.onrender.com/user", {
             method: "GET",
                  credentials: "include",
               headers: {
