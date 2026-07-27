@@ -16,7 +16,7 @@ const cookieParser = require("cookie-parser");
 const corsOptions = {
   origin: [
     'https://attendenceapp-ten.vercel.app',  
-    'https://mern-projects-oj9w.onrender.com',
+    'https://attandance-managment-system-iv7h.onrender.com',
     'http://localhost:5173',
  
     
