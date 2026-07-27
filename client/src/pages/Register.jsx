@@ -128,7 +128,7 @@ function Register() {
     setIsSubmitting(true)
 
     try {
-      // Step 1: Upload image to Cloudinary
+     
       const formData = new FormData()
       formData.append("file", image)
       formData.append("upload_preset", "rawaha")
@@ -142,13 +142,13 @@ function Register() {
       const cloudData = await res.json()
       console.log(cloudData);
 
-      // Step 2: Send form to backend
+      
       const finalData = {
         ...data,
         profileImage: cloudData.secure_url,
       }
 
-      const response = await fetch("https://mern-projects-oj9w.onrender.com/register", {
+      const response = await fetch("https://attandance-managment-system-iv7h.onrender.com/register", {
         method: "POST",
         credentials: "include",
         headers: {

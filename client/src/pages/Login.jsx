@@ -34,7 +34,7 @@ const { setUser,saveToken} = useAuth();
     setIsLoading(true)
 
     try {
-      const response = await fetch("https://mern-projects-oj9w.onrender.com/login", {
+      const response = await fetch("https://attandance-managment-system-iv7h.onrender.com/login", {
         method: "POST",
       headers: {
   'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ const { setUser,saveToken} = useAuth();
 
       setTimeout(() => {
         window.location.reload()
-      }, 100) // slight delay to allow navigation before reload
+      }, 100) 
       toast.success(responseData.message || "Login successful")
  
  

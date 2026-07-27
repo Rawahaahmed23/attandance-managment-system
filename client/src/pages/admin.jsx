@@ -68,7 +68,7 @@ export default function UserManagementPage() {
   const fetchUsers = async () => {
     try {
       const token = Cookies.get("token");
-      const res = await fetch("https://mern-projects-oj9w.onrender.com/admin/users", {
+      const res = await fetch("https://attandance-managment-system-iv7h.onrender.com/admin/users", {
         method: "GET",
         credentials: "include",
        
@@ -104,7 +104,7 @@ export default function UserManagementPage() {
     setLoading(true);
     try {
       const token = Cookies.get("token");
-      const res = await fetch(`https://mern-projects-production-9252.up.railway.app/admin/users/${selectedUser._id}`, {
+      const res = await fetch(`https://attandance-managment-system-iv7h.onrender.com/admin/users/${selectedUser._id}`, {
         method: "PUT",
         credentials: "include",
         headers: {
@@ -121,7 +121,7 @@ export default function UserManagementPage() {
         ));
         setEditDialogOpen(false);
         setSelectedUser(null);
-        // Show success message (you can add toast notification here)
+      
         console.log("User updated successfully");
       } else {
         console.error("Failed to update user");
@@ -139,7 +139,7 @@ export default function UserManagementPage() {
     setLoading(true);
     try {
       const token = Cookies.get("token");
-      const res = await fetch(`https://mern-projects-oj9w.onrender.com/admin/users/${userToDelete._id}`, {
+      const res = await fetch(`https://attandance-managment-system-iv7h.onrender.com/admin/users/${userToDelete._id}`, {
         method: "DELETE",
         credentials: "include",
         headers: {
@@ -151,7 +151,7 @@ export default function UserManagementPage() {
         setUsers(users.filter(user => user._id !== userToDelete._id));
         setDeleteDialogOpen(false);
         setUserToDelete(null);
-        // Show success message (you can add toast notification here)
+        
         console.log("User deleted successfully");
       } else {
         console.error("Failed to delete user");
